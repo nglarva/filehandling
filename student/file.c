@@ -1,22 +1,52 @@
 #include <stdio.h>
-
+#include <string.h>
 int main(){
     FILE * fptr;
     fpos_t pos;
+    int age;
+    char name[50];
+    char diachi[50];
 
-    fptr = fopen("data.txt","w");
+    char content[100];
 
-    fprintf(fptr,"%s","Good morning\n");
-    fgetpos(fptr, &pos);
-    printf("Pos: %p\n", pos);
+//     fptr = fopen("info.txt","w");
 
-    fprintf(fptr,"%d",2025);
-    fgetpos(fptr, &pos);
-    printf("Pos: %p\n", pos);
 
-    fprintf(fptr,"%f",3.14);
-    fgetpos(fptr, &pos);
-    printf("Pos: %p\n", pos);
+//    /* fprintf(fptr,"%s","Do Hoang Long\n");
+    
+//     fprintf(fptr,"%d\n",2006);*/
+    
+//         //scanf("%s", name);
+//         printf("Ten: ");
+//         scanf("%[^\n]s", name);
+//        // name[strcspn(name,"\n")] = '\0';
+//         printf("Tuoi: ");
+//         scanf("%d %s", &age,diachi);
+//        // printf("Dia chi: ");
+
+//         //scanf("%[^\n]s", diachi);
+//         //diachi[strcspn(diachi,"\n")] = '\0';
+//         //scanf("%s", diachi);
+
+//         fprintf(fptr,"Ten %s\n", name);
+//         fprintf(fptr,"Tuoi %d\n", age);
+//         fprintf(fptr,"Diachi %s\n", diachi);
+
+    
+
+//     fclose(fptr);
+
+    fptr = fopen("info.txt", "r");
+    if(fptr == NULL){
+        printf("File khong ton tai");
+    } else {
+        while (fgets(content,100,fptr) != NULL)
+        {
+            printf("%s", content);
+        }
+    }
+    fclose(fptr);
+
 
     
 
